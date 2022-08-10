@@ -1,21 +1,30 @@
 const express = require("express");
+const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const { User, Group, GroupMember } = require("../../db/models");
 const { check } = require("express-validator");
 const { handleValidationErrors } = require("../../utils/validation");
-const { setTokenCookie, requireAuth } = require("../../utils/auth");
-const { User } = require("../../db/models");
 
 const router = express.Router();
 
+// validateSignup middleware checks that the body of the request has keys of firstName, lastName, email, and password, and validates them
 const validateSignup = [
   check("email")
     .exists({ checkFalsy: true })
     .isEmail()
-    .withMessage("Please provide a valid email."),
-  check("username")
+    .withMessage("Invalid email.")
+    .custom((email) => {
+      return User.findOne({ where: { email } }).then((user) => {
+        if (user) {
+          return Promise.reject("User with that email already exists");
+        }
+      });
+    }),
+  check("firstName")
     .exists({ checkFalsy: true })
-    .isLength({ min: 4 })
-    .withMessage("Please provide a username with at least 4 characters."),
-  check("username").not().isEmail().withMessage("Username cannot be an email."),
+    .withMessage("First Name is required"),
+  check("lastName")
+    .exists({ checkFalsy: true })
+    .withMessage("Last Name is required"),
   check("password")
     .exists({ checkFalsy: true })
     .isLength({ min: 6 })
@@ -23,16 +32,42 @@ const validateSignup = [
   handleValidationErrors,
 ];
 
+//Get the groups joined or organized by the current user
+router.get("/current-user/groups", requireAuth, async (req, res) => {
+  let currUser = req.user;
+  let currUserId = currUser.dataValues.id;
+  const groups = await Group.findAll({
+    where: { organizerId: currUserId },
+  });
+
+  for (let group of groups) {
+    let { id } = group;
+    const numMembers = await GroupMember.count({
+      where: { GroupId: id },
+    });
+    group.dataValues.numMembers = numMembers;
+  }
+
+  res.json({ Groups: groups });
+});
+
+//Get the current user
+router.get("/current-user", requireAuth, async (req, res) => {
+  const currentUser = req.user;
+  res.json(currentUser);
+});
+
 // Sign up
 router.post("/", validateSignup, async (req, res) => {
-  const { email, password, username } = req.body;
-  const user = await User.signup({ email, username, password });
+  const { email, password, firstName, lastName } = req.body;
 
-  await setTokenCookie(res, user);
+  const user = await User.signup({ firstName, lastName, email, password });
 
-  return res.json({
-    user,
-  });
+  let token = await setTokenCookie(res, user);
+
+  user.dataValues.token = token;
+
+  return res.json(user);
 });
 
 module.exports = router;

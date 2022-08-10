@@ -1,41 +1,42 @@
 const express = require("express");
-const { check } = require("express-validator");
-const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
 const { User } = require("../../db/models");
+const { check } = require("express-validator");
+const { handleValidationErrors } = require("../../utils/validation");
 
 const router = express.Router();
 
+// validateLogin middleware is composed of check and handleValidationErrors middleware. It checks to see whether or not req.body.credential and req.body.password are empty. If one of them are empty, an error will be returned as the response.
 const validateLogin = [
-  check("credential")
+  check("email")
     .exists({ checkFalsy: true })
     .notEmpty()
-    .withMessage("Please provide a valid email or username."),
+    .withMessage("Email is required"),
   check("password")
     .exists({ checkFalsy: true })
-    .withMessage("Please provide a password."),
+    .withMessage("Password is required"),
   handleValidationErrors,
 ];
 
 // Log in
 router.post("/", validateLogin, async (req, res, next) => {
-  const { credential, password } = req.body;
+  const { email, password } = req.body;
 
-  const user = await User.login({ credential, password });
+  const user = await User.login({ email, password });
 
   if (!user) {
-    const err = new Error("Login failed");
+    const err = new Error("Invalid credentials");
     err.status = 401;
     err.title = "Login failed";
     err.errors = ["The provided credentials were invalid."];
     return next(err);
   }
 
-  await setTokenCookie(res, user);
+  let token = await setTokenCookie(res, user);
 
-  return res.json({
-    user,
-  });
+  user.dataValues.token = token;
+
+  return res.json(user);
 });
 
 // Log out
@@ -51,7 +52,7 @@ router.get("/", restoreUser, (req, res) => {
     return res.json({
       user: user.toSafeObject(),
     });
-  } else return res.json({});
+  } else return res.json();
 });
 
 module.exports = router;
