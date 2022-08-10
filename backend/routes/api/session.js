@@ -22,13 +22,15 @@ const validateLogin = [
 router.post("/", validateLogin, async (req, res, next) => {
   const { email, password } = req.body;
 
+  // let { token } = req.cookies;
+
   const user = await User.login({ email, password });
 
   if (!user) {
     const err = new Error("Invalid credentials");
     err.status = 401;
     err.title = "Login failed";
-    err.errors = ["The provided credentials were invalid."];
+    // err.errors = ["The provided credentials were invalid."];
     return next(err);
   }
 
@@ -45,14 +47,14 @@ router.delete("/", (_req, res) => {
   return res.json({ message: "success" });
 });
 
-// Restore session user
+// Restore session user, returns the session user as JSON under the key of user
 router.get("/", restoreUser, (req, res) => {
   const { user } = req;
   if (user) {
     return res.json({
       user: user.toSafeObject(),
     });
-  } else return res.json();
+  } else return res.json({});
 });
 
 module.exports = router;

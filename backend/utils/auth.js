@@ -4,7 +4,9 @@ const { User } = require("../db/models");
 
 const { secret, expiresIn } = jwtConfig;
 
-// Sends a JWT Cookie
+// Sends a JWT cookie
+//Takes in the response and session user and generates a JWT using the imported secret
+// This function will be used in the login and signup routes
 const setTokenCookie = (res, user) => {
   // Create the token.
   const token = jwt.sign(
@@ -26,6 +28,8 @@ const setTokenCookie = (res, user) => {
   return token;
 };
 
+//Verifies and parses the JWT payload and searches the database for a User with the id in the payload. If there is a User found, save the user to a key of user on the request. Otherwise, clear the token cookie from the response.
+//This function will be connected to the API router so that the API route handlers can check if there is a current user logged in or not
 const restoreUser = (req, res, next) => {
   // token parsed from cookies
   const { token } = req.cookies;
@@ -50,11 +54,13 @@ const restoreUser = (req, res, next) => {
   });
 };
 
+// Requires the session user to be authenticated before accessing a route.
 // If there is no current user, return an error
+// Will be connected to route handlers where there needs to be a current user logged in
 const requireAuth = function (req, _res, next) {
   if (req.user) return next();
 
-  const err = new Error("Unauthorized");
+  const err = new Error("Authentication Required");
   err.title = "Unauthorized";
   err.errors = ["Unauthorized"];
   err.status = 401;

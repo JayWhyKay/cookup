@@ -11,8 +11,14 @@ const validateCreateVenue = [
   check("address")
     .exists({ checkFalsy: true })
     .withMessage("Street address is required"),
-  check("city").exists({ checkFalsy: true }).withMessage("City is required"),
-  check("state").exists({ checkFalsy: true }).withMessage("State is required"),
+  // prettier-ignore
+  check("city")
+  .exists({ checkFalsy: true })
+  .withMessage("City is required"),
+  // prettier-ignore
+  check("state")
+  .exists({ checkFalsy: true })
+  .withMessage("State is required"),
   check("lat").custom((lat) => {
     if (lat < -90 || lat > 90) {
       throw new Error("Latitude is not valid");

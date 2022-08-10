@@ -95,6 +95,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "User",
+      //create scopes to prevent user's sensitive information from being sent
       defaultScope: {
         attributes: {
           exclude: ["hashedPassword", "email", "createdAt", "updatedAt"],

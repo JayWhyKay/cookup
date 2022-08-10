@@ -71,8 +71,14 @@ const validateCreateEvent = [
       return Promise.reject("Type must be Online or In person");
     } else return true;
   }),
-  check("capacity").isInt().withMessage("Capacity must be an integer"),
-  check("price").isDecimal({ min: 0 }).withMessage("Price is invalid"),
+  // prettier-ignore
+  check("capacity")
+  .isInt()
+  .withMessage("Capacity must be an integer"),
+  // prettier-ignore
+  check("price")
+  .isDecimal({ min: 0 })
+  .withMessage("Price is invalid"),
   check("description")
     .exists({ checkFalsy: true })
     .withMessage("Description is required"),
@@ -87,7 +93,7 @@ const validateCreateEvent = [
   handleValidationErrors,
 ];
 
-//Add an group image by group's id
+//Add an image to a group based on the group's id
 router.post("/:groupId/images", requireAuth, async (req, res) => {
   const group = await Group.findByPk(req.params.groupId);
 
@@ -133,7 +139,7 @@ router.post("/:groupId/images", requireAuth, async (req, res) => {
   res.json(result);
 });
 
-// Change membership status in group by id
+// Change the status of a membership for a group specified by id
 router.put("/:groupId/members", requireAuth, async (req, res) => {
   const currUser = req.user;
   let currUserId = currUser.dataValues.id;
