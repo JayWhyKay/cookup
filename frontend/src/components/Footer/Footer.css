@@ -1,131 +1,129 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
-
-.footer-container {
-  background-color: rgb(33, 33, 33);
-  line-height: 24px;
-  padding-top: 1rem;
+.footer__container {
+  background-color: rgb(25, 25, 25);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
-.footer-header-container {
+.footer__container div:first-child {
   width: 70%;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgb(217, 217, 217);
-}
-
-.footer-header {
-  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid rgb(225, 225, 225);
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
-.footer-header > p {
+.footer__container div:first-child > p {
   font-weight: 600;
-  color: rgb(246, 247, 248);
-  margin-right: 1rem;
+  font-size: 14pt;
+  color: rgb(225, 225, 225);
 }
 
-.footer-signup {
-  color: #fff;
-  cursor: pointer;
+.footer__container > div:first-child > p > span {
+  font-weight: 600;
+  font-size: 14pt;
+  color: red;
+  font-family: Caveat;
+}
+
+.footer__container > div:first-child > div {
+  color: rgb(225, 225, 225);
+  border: 2px solid rgb(225, 225, 225);
+  font-size: 12pt;
   background-color: transparent;
-  padding: 8px 12px;
-  border: 2px solid #fff;
-  text-decoration: none;
-  border-radius: 0.375rem;
-  font-weight: Bold;
-  font-family: "Roboto";
-}
-
-.footer-columns-container {
-  width: 70%;
-  display: flex;
-}
-
-.your-account-column {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 12px;
-}
-
-.your-account-column > h4 {
-  color: rgb(246, 247, 248);
-  line-height: 24px;
-  margin: 0;
-}
-
-.signup-login-footer-link {
-  text-decoration: none;
-  color: rgb(197, 196, 196);
-  font-size: 14px;
   cursor: pointer;
-  margin: 4px 0px;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
-.technologies-column {
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 12px;
-}
-
-.technologies-column > h4 {
-  color: rgb(246, 247, 248);
-  line-height: 24px;
-  margin: 0;
-}
-
-.technologies-column > p {
-  text-decoration: none;
-  color: rgb(197, 196, 196);
-  font-size: 14px;
-  margin: 4px 0px;
-}
-
-.footer-socials-container {
+.footer_body__container {
   width: 70%;
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.footer_body__container > div:first-child {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-}
-
-.footer-socials-container > h4 {
-  color: rgb(246, 247, 248);
-  line-height: 24px;
-  margin-bottom: 1rem;
-}
-
-.footer-social-links {
-  display: flex;
-  gap: 4rem;
-  margin-bottom: 24px;
-}
-
-.fa-brands {
-  color: rgb(217, 217, 217);
-  font-size: 2rem;
-}
-
-.footer-log-out {
-  text-decoration: none;
-  color: rgb(197, 196, 196);
-  font-size: 14px;
-  cursor: pointer;
-  margin: 4px 0px;
   border: none;
-  background: none;
-  cursor: pointer;
-  text-align: start;
-  padding: 0;
+  padding: 10px 0px;
+  width: 150px;
+  color: rgb(225, 225, 225);
 }
 
-.footer-hover:hover {
-  color: rgb(162, 162, 162);
+.footer_account__links {
+  text-decoration: none;
+  font-size: 12pt;
+  color: rgb(100, 100, 100);
+  letter-spacing: 0;
+  font-weight: 500;
   cursor: pointer;
+}
+
+.footer_account__links > span {
+  font-weight: 600;
+  font-size: 14pt;
+}
+
+.footer_account__links:hover {
+  color: palevioletred;
+}
+
+.footer_body__container > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  padding: 10px 0px;
+  color: rgb(225, 225, 225)
+}
+
+.footer_body__container > div:last-child > a {
+  color:rgb(100, 100, 100);
+  text-decoration: none;
+}
+
+.footer_body__container > div:last-child > a:hover {
+  color: palegoldenrod;
+}
+
+.personal__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 0px 10px 0px;
+  background-color: rgb(75, 75, 75);
+  width: 100%;
+}
+
+.personal__links > span {
+  color:rgb(225, 225, 225);
+  padding: 10px;
+}
+
+.personal__links > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.personal__links > div > a {
+  color: bisque;
+  margin-bottom: 10px;
+}
+
+.personal__links > div > a:hover {
+  color: palegreen;
 }

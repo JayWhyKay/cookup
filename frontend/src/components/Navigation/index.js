@@ -3,7 +3,6 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "../HomePageNavigation/ProfileButton";
 import LoginFormModal from "../LoginFormModal";
-import CreateGroupButton from "./CreateGroupButton";
 import DemoLoginButton from "../HomePageNavigation/DemoLogin";
 import "./Navigation.css";
 
@@ -24,7 +23,6 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <div className="session-links-logged-in">
-        <CreateGroupButton />
         <ProfileButton user={sessionUser} classStyle="profile-button" />
       </div>
     );
@@ -32,8 +30,8 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <DemoLoginButton />
-        <LoginFormModal styleClass="home-page-navigation__login " />
-        <NavLink to="/signup" className="general-navigation__sign-up">
+        <LoginFormModal />
+        <NavLink to="/signup" className="home_navigation__sign-up">
           Sign Up
         </NavLink>
       </>
@@ -41,35 +39,21 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className="general-navigation">
-      {/* Left side of nav */}
-      <div className="left-nav">
-        <NavLink to="/" className="hackup-logo">
-          Cook-Up
-        </NavLink>
-
-        <form onSubmit={handleSearch}>
-          <label>
-            <input
-              type="text"
-              className="keyword-search"
-              placeholder="Search for events"
-              value={searchName}
-              onChange={(e) => setSearchName(e.target.value)}
-            />
-          </label>
-          <button>
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </form>
-      </div>
-
-      {/* Right side of nav */}
-      <div className="right-nav">
-        <ul>
-          <li>{isLoaded && sessionLinks}</li>
-        </ul>
-      </div>
+    <div className="nav__bar">
+      <div onClick={() => history.push("/")}>CookUp</div>
+      <form onSubmit={handleSearch}>
+        <input
+          className="nav_search__input"
+          type="text"
+          placeholder="Search for events"
+          value={searchName}
+          onChange={(e) => setSearchName(e.target.value)}
+        />
+        <button>
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div>{isLoaded && sessionLinks}</div>
     </div>
   );
 }

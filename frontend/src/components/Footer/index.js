@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import { Link } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "../../store/session";
 import FooterColumn from "./FooterColumn";
@@ -8,6 +8,7 @@ import LoginFormModal from "../LoginFormModal";
 
 function Footer() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   const logout = (e) => {
@@ -15,33 +16,32 @@ function Footer() {
     dispatch(sessionActions.logout());
   };
   return (
-    <div className="footer-container">
-      <div className="footer-header-container">
-        <div className="footer-header">
-          <p>Get started on <span>CookUp</span>.</p>
-          {!sessionUser && (
-            <Link to="/signup" className="footer-signup">
-              Sign Up
-            </Link>
-          )}
-        </div>
+    <div className="footer__container">
+      <div>
+        <p>
+          Get started on <span>CookUp</span>.
+        </p>
+        {!sessionUser && (
+          <div
+            onClick={() => history.push("/signup")}
+            className="footer__signup"
+          >
+            Sign Up
+          </div>
+        )}
       </div>
 
-      {/* Footer Columns */}
-      <div className="footer-columns-container">
-        <div className="your-account-column">
-          <h4>Your Account</h4>
+      <div className="footer_body__container">
+        <div>
+          <span>Your Account</span>
           {!sessionUser && (
-            <Link
-              to="/signup"
-              className="signup-login-footer-link footer-hover"
-            >
+            <Link to="/signup" className="footer_account__links">
               Sign up
             </Link>
           )}
-          {!sessionUser && <LoginFormModal styleClass="footer-login" />}
+          {!sessionUser && <LoginFormModal />}
           {sessionUser && (
-            <div className="footer-log-out footer-hover" onClick={logout}>
+            <div className="footer_account__links" onClick={logout}>
               Log Out
             </div>
           )}
@@ -53,50 +53,47 @@ function Footer() {
             { name: "Events", link: "events" },
           ]}
         />
-        <div className="technologies-column">
-          <h4>Technologies Used</h4>
-          <a
-            href="https://expressjs.com/"
-            className="footer-hover category-link"
-          >
-            Express
+        <div>
+          <span>Technologies Used</span>
+          <a href="https://reactjs.org/">
+            <i class="devicon-react-original colored"></i>
+            {` `}React
           </a>
-          <a
-            href="https://sequelize.org/"
-            className="footer-hover category-link"
-          >
-            Sequelize
+          <a href="https://redux.js.org/">
+            <i className="devicon-redux-original colored"></i>
+            {` `}Redux
           </a>
-          <a href="https://reactjs.org/" className="footer-hover category-link">
-            React
+          <a href="https://expressjs.com/">
+            <i class="devicon-express-original"></i>
+            {` `}Express
           </a>
-          <a
-            href="https://redux.js.org/"
-            className="footer-hover category-link"
-          >
-            Redux
+          <a href="https://sequelize.org/">
+            <i class="devicon-sequelize-plain colored"></i>
+            {` `}Sequelize
+          </a>
+          <a href="https://www.javascript.com/">
+            <i class="devicon-javascript-plain colored"></i>
+            {` `}JavaScript
           </a>
         </div>
       </div>
-
-      {/* Footer Social Links
-      <div className="footer-socials-container">
-        <h4>Connect with Me!</h4>
+      <div className="personal__links">
+        <span>Links to developer</span>
         <div className="footer-social-links">
-          <a href="https://www.linkedin.com/in/alex-zelinsky/">
-            <i className="fa-brands fa-linkedin footer-hover"></i>
+          <a href="https://www.linkedin.com/in/james-kim-b48a47167">
+            <i className="fa-brands fa-linkedin fa-2xl"></i>
           </a>
-          <a href="https://github.com/AZensky">
-            <i className="fa-brands fa-github footer-hover"></i>
+          <a href="https://www.linkedin.com/in/james-kim-b48a47167">
+            <i className="fa-brands fa-angellist fa-2xl"></i>
           </a>
-          <a href="https://medium.com/@alexzelinsky124">
-            <i className="fa-brands fa-medium footer-hover"></i>
+          <a href="https://github.com/JayWhyKay">
+            <i className="fa-brands fa-github fa-2xl"></i>
           </a>
-          <a href="https://www.instagram.com/a.zelinsky7/?hl=en">
-            <i className="fa-brands fa-instagram footer-hover"></i>
+          <a href="https://github.com/JayWhyKay">
+            <i className="fa-solid fa-image-portrait fa-2xl"></i>
           </a>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

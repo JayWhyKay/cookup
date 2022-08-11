@@ -22,7 +22,7 @@ function EventsPage() {
 
   return (
     <>
-      <div className="events-page-container">
+      <div className="events__container">
         <NavChoice displaySort={false} isEvent={true} />
         {events.length > 0 &&
           events.map((event) => (

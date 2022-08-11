@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import "./UserProfile.css";
 
 function UserProfile() {
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   const [groupsJoined, setGroupsJoined] = useState("");
@@ -19,49 +20,31 @@ function UserProfile() {
     fetchData().catch(console.error);
   }, []);
 
-  // if user is not logged in, redirect
   if (!sessionUser) return <Redirect to="/" />;
 
   return (
     <>
-      <div className="profile-main-content">
-        <div className="users-info-container">
-          <div className="profile-page-img">{sessionUser.firstName[0]}</div>
-          <h1>
+      <div className="profile__container">
+        <div>
+          <button>{sessionUser.firstName[0]}</button>
+          <span>
             {sessionUser.firstName} {sessionUser.lastName}
-          </h1>
+          </span>
         </div>
-
-        <div className="group-count-container">
-          <div className="group-count">
-            <span>{groupsJoined.length}</span> Groups
-          </div>
-        </div>
-
-        <div className="joined-groups-container">
-          <div className="joined-groups">
-            <h2>Groups</h2>
-            <div className="all-joined-groups">
-              {groupsJoined.length > 0 &&
-                groupsJoined.map((group) => (
-                  <Link
-                    to={`/groups/${group.id}`}
-                    className="groups-joined-link"
-                    key={group.id}
-                  >
-                    <div className="joined-group-details-container">
-                      <img
-                        src={group.previewImage}
-                        alt=""
-                        className="joined-group-details__img"
-                      />
-                      <div className="joined-group-details__name">
-                        {group.name}
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-            </div>
+        <div>
+          <div>
+            <span>My Groups</span>
+            {groupsJoined.length > 0 &&
+              groupsJoined.map((group) => (
+                <div
+                  onClick={() => history.push(`/groups/${group.id}`)}
+                  className="profile_groups__link"
+                  key={"profile"+group.id}
+                >
+                  <div>{group.name}</div>
+                  <img src={group.previewImage} alt="" />
+                </div>
+              ))}
           </div>
         </div>
       </div>

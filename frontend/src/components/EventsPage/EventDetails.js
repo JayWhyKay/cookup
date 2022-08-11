@@ -1,9 +1,10 @@
 import React from "react";
 import "./EventDetails.css";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 //prettier-ignore
 function EventDetails({name, group, city, state, attendees, preview, id, startDate, }) {
+  const history = useHistory()
   let days = {
     0: "Sunday",
     1: "Monday",
@@ -43,28 +44,38 @@ function EventDetails({name, group, city, state, attendees, preview, id, startDa
   } PDT`;
 
   return (
-    <Link to={`/events/${id}`} className="event-details-container">
-      <div className="event-details-info">
+    <div
+    className="event_detail__container"
+    onClick={()=> history.push(`/events/${id}`)}
+    >
+      <div>
         <img
           src={
             preview
               ? preview
-              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv6lrmBCsboVg4QhJtKQP7QzwmtYDnY3Jsbw&usqp=CAU"
+              : "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
           }
-          alt="Event Pic"
+          alt="Food picture"
         />
-        <div className="event-details-description">
-          <time>{timeStr}</time>
-          <p className="event-details-title">{name}</p>
-          <p className="event-details-group-name">
-            {group} {city && '·'} {city}{city && ','} {state}
-          </p>
-          <p className="event-details-group-attendees">
+        <div>
+          <div>
+            <span>{timeStr}</span>
+            <span>{name}</span>
+          </div>
+          <div>
+            <span className="event-details-group-name">
+              {group}
+            </span>
+            <span>
+              {city}{city && ','} {state}
+            </span>
+          </div>
+          <span>
             {attendees} {attendees === 1 ? "attendee" : "attendees"}
-          </p>
+          </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

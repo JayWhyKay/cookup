@@ -4,13 +4,13 @@ import "./FooterColumn.css";
 
 function FooterColumn({ title, categories }) {
   return (
-    <div className="footer-column">
-      <h4>{title}</h4>
+    <div className="footer_center__column">
+      <span>{title}</span>
       {categories.map((category) => (
         <Link
           to={`/${category.link}`}
           key={category.name}
-          className="category-link footer-hover"
+          className="footer_column__links"
         >
           {category.name}
         </Link>

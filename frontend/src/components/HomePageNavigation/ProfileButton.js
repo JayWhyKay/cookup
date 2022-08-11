@@ -48,6 +48,11 @@ function ProfileButton({ user }) {
           >
             Your Profile
           </div>
+          <div
+            onClick={() => history.push("/create-group")}
+          >
+            Create a Group
+          </div>
           <div onClick={logout}>Log Out</div>
         </div>
       )}

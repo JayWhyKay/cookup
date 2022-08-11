@@ -1,31 +1,37 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import "./GroupDetail.css";
 
 function GroupDetails({ name, city, state, about, members, preview, id }) {
+  const history = useHistory();
   return (
-    <Link to={`/groups/${id}`} className="group-details-container">
-      <div className="group-details-info">
+    <div
+      className="group_detail__container"
+      onClick={() => history.push(`/groups/${id}`)}
+    >
+      <div>
         <img
           src={
             preview
               ? preview
-              : "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
+              : "https://images.unsplash.com/photo-1511357840105-748c95f0a7e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTk2fHxmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=300&q=60"
           }
-          alt="Event Pic"
+          alt="Food Picture"
         />
-        <div className="group-details-description">
-          <p className="group-details-name">{name}</p>
-          <p className="group-details-location">
-            {city}, {state}
-          </p>
-          <div className="group-details-about">{about}</div>
-          <p className="group-details-group-attendees">
+        <div>
+          <div>
+            <span>{name}</span>
+            <span>
+              {city}, {state}
+            </span>
+          </div>
+          <div>{about}</div>
+          <span>
             {members} {members === 1 ? "member" : "members"}
-          </p>
+          </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

@@ -5,26 +5,24 @@ import NavSort from "./NavSort";
 
 function NavChoice({ displaySort, isEvent }) {
   return (
-    <div className="nav-choice-container">
-      <div className="nav-choice">
+    <div className="nav_choice__container">
+      <div>
         <NavLink
-          to="/events"
-          className="nav-choice-link"
+          className="nav_choice__link"
           activeClassName="selected"
-        >
-          Events
-        </NavLink>
-        <NavLink
-          to="/groups"
-          className="nav-choice-link"
-          activeClassName="selected"
+          to={"/groups"}
         >
           Groups
         </NavLink>
+        <NavLink
+          className="nav_choice__link"
+          activeClassName="selected"
+          to={"/events"}
+        >
+          Events
+        </NavLink>
       </div>
-      <h1 className="nav-choice-main-title">
-        Suggested {isEvent ? "events" : "groups"}{" "}
-      </h1>
+      <span>Suggested {isEvent ? "events" : "groups"} </span>
       {displaySort && <NavSort />}
     </div>
   );

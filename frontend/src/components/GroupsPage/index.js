@@ -13,8 +13,7 @@ function GroupsPage() {
   }, [dispatch]);
 
   return (
-    <>
-      <div className="groups-page-container">
+      <div className="groups__container">
         <NavChoice displaySort={false} isEvent={false} />
         {groups.map((group) => (
           <GroupDetails
@@ -29,7 +28,6 @@ function GroupsPage() {
           />
         ))}
       </div>
-    </>
   );
 }
 
