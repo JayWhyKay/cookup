@@ -16,10 +16,9 @@ function Footer() {
   };
   return (
     <div className="footer-container">
-      {/* Footer header */}
       <div className="footer-header-container">
         <div className="footer-header">
-          <p>Get started on HackUp.</p>
+          <p>Get started on <span>CookUp</span>.</p>
           {!sessionUser && (
             <Link to="/signup" className="footer-signup">
               Sign Up
@@ -80,7 +79,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* Footer Social Links */}
+      {/* Footer Social Links
       <div className="footer-socials-container">
         <h4>Connect with Me!</h4>
         <div className="footer-social-links">
@@ -97,7 +96,7 @@ function Footer() {
             <i className="fa-brands fa-instagram footer-hover"></i>
           </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

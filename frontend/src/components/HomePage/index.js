@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./HomePage.css";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllEvents } from "../../store/events";
 import { getAllGroups } from "../../store/groups";
@@ -40,9 +40,8 @@ function HomePage() {
               Celebrating 20 years of real connections on <span>CookUp</span>
             </h1>
             <p>
-              Your new community is waiting for you. For 20 years, millions of
-              people have chosen CookUp. CookUp to make real connections over
-              the things that matter. Start a group today.
+              Your new community awaits you. For 20 years, millions of
+              people have chosen CookUp. Make a real connection, break some bread, and start a group today.
             </p>
           </div>
           <img
@@ -50,6 +49,7 @@ function HomePage() {
             alt="Cook-up Image"
           />
         </div>
+
         <div className="home_page__events_groups">
           <div onClick={() => history.push("/groups")}>
             <img
@@ -78,6 +78,15 @@ function HomePage() {
             </p>
           </div>
         </div>
+        <div className="home_page__how">
+        <h2>How CookUp Works</h2>
+        <span>
+          If you love to cook or just love to eat come join our growing
+          community. It's free to create an account. Link up with fellow
+          foodies! Build your own community or find a food event happening near
+          you!
+        </span>
+      </div>
         <div className="home_page__sub__links">
           <div onClick={() => history.push("/groups")}>
             <img
@@ -129,29 +138,17 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="home_page__how">
-        <h2>How CookUp Works</h2>
-        <span>
-          If you love to cook or just love to eat come join our growing community.
-          It's free to create an account. Link up with fellow foodies! Build your own community or find a food event happening near you!
-        </span>
 
-        {/* Link to Sign up */}
-        {/* <Link to="/signup" className="home-page__secondary-content__signup">
-          Join HackUp
-        </Link> */}
-      </div>
 
-      <div className="home- gipage__tertiary-content">
-        {/* Upcoming Events */}
-        <div className="upcoming-events-header">
+      <div className="home_page__upcoming__events">
+        <div>
           <h2>Upcoming events</h2>
-          <Link to="/events" className="upcoming-events-header__explore">
-            Explore more events
-          </Link>
+          <span onClick={() => history.push("/events")}>
+            See more events
+          </span>
         </div>
-        <div className="upcoming-events__container">
-          <div className="upcoming-events">
+        <div>
+          <div>
             {events.map((event) => (
               <UpcomingEvent
                 key={event.id}
@@ -164,16 +161,14 @@ function HomePage() {
             ))}
           </div>
         </div>
-
-        {/* Popular Groups */}
-        <div className="upcoming-groups-header">
+        <div>
           <h2>Popular groups</h2>
-          <Link to="/groups" className="upcoming-groups-header__explore">
-            Explore more groups
-          </Link>
+          <span onClick={() => history.push("/groups")}>
+            See more groups
+          </span>
         </div>
-        <div className="popular-groups-container">
-          <div className="popular-groups-container__popular-groups">
+        <div>
+          <div>
             {groups.map((group) => (
               <PopularGroup
                 key={group.id}

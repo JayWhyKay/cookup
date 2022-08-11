@@ -1,47 +1,49 @@
-.upcoming-events__event {
+.upcoming_events__event {
   display: flex;
   flex-direction: column;
   width: 25%;
-  padding: 12px;
+  min-width: 300px;
+  padding: 10px;
   text-decoration: none;
   cursor: pointer;
 }
 
-.upcoming-events__event > img {
-  border: 1px solid #d9d9d9;
-  border-radius: 0.5rem;
-  max-width: 265px;
-  max-height: 150px;
-  vertical-align: middle;
+.upcoming_events__event:hover {
+  background-color: rgba(100, 100, 100,0.3);
+  opacity: 0.7;
+}
+
+.upcoming_events__event > img {
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  width: 300px;
+  height: 150px;
   object-fit: cover;
-  position: relative;
+  /* vertical-align: middle; */
+  /* position: relative; */
   margin-bottom: 8px;
 }
 
-.upcoming-events__event__details {
+.upcoming_events__details {
   display: flex;
   flex-direction: column;
 }
 
-.upcoming-events__event__details > time {
-  color: rgb(135, 116, 87);
-  letter-spacing: -0.35px;
-  line-height: 20px;
+.upcoming_events__details > time {
+  color: rgb(100, 100, 100);
 }
 
-.upcoming-events-event-title {
-  color: rgb(33, 33, 33);
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 24px;
-  padding-bottom: 4px;
+.upcoming_events__details > p {
+  color: rgb(50, 50, 50);
+  font-size: 12pt;
+  font-weight: 600;
   margin: 0;
-  margin-top: 4px;
 }
 
-.upcoming-events__group-name {
-  color: rgb(117, 117, 117);
+.upcoming_events__details > p:last-child {
+  color: rgb(100, 50, 100);
   font-size: 0.875rem;
   line-height: 20px;
   margin: 0;
+  margin-bottom: 10px;
 }

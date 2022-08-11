@@ -40,12 +40,12 @@ function UpcomingEvent({ preview, name, group, id, startDate }) {
   }:${minutes >= 10 ? minutes : "0" + minutes} ${hours > 12 ? "PM" : "AM"}`;
 
   return (
-    <Link to={`/events/${id}`} className="upcoming-events__event">
+    <Link to={`/events/${id}`} className="upcoming_events__event">
       <img src={preview} alt="People Talking" />
-      <div className="upcoming-events__event__details">
+      <div className="upcoming_events__details">
         <time>{timeStr}</time>
-        <p className="upcoming-events-event-title">{name}</p>
-        <p className="upcoming-events__group-name">{group}</p>
+        <p>{name}</p>
+        <p>{group}</p>
       </div>
     </Link>
   );
