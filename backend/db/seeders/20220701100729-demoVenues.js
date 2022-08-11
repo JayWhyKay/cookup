@@ -13,7 +13,7 @@ const demoVenues = [
   },
   {
     groupId: 1,
-    address: "123 Disney Lane",
+    address: "123 Disney Drive",
     city: "Los Angeles",
     state: "CA",
     lat: 67.7645358,
@@ -21,7 +21,7 @@ const demoVenues = [
   },
   {
     groupId: 1,
-    address: "321 Universal Lane",
+    address: "123 Universal Drive",
     city: "Los Angeles",
     state: "CA",
     lat: 67.7645358,
@@ -29,7 +29,7 @@ const demoVenues = [
   },
   {
     groupId: 2,
-    address: "321 San Francisco Lane",
+    address: "123 San Francisco Lane",
     city: "San Francisco",
     state: "CA",
     lat: 47.7645358,
@@ -37,7 +37,7 @@ const demoVenues = [
   },
   {
     groupId: 1,
-    address: "123 New York Lane",
+    address: "123 34 St",
     city: "New York",
     state: "NY",
     lat: 47.7645358,

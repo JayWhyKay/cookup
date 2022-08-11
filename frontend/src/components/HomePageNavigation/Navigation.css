@@ -1,0 +1,35 @@
+.home_navigation{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+  padding: 0vw 4vw;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.cook_up__logo {
+  color: red;
+  font-family: Caveat;
+  font-size: 6vw;
+  font-weight: 600;
+  margin-left: 1vw;
+  text-decoration: none;
+}
+
+.home_navigation__sign-up {
+  text-decoration: none;
+  font-size: 12pt;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+.home_navigation__sign-up:hover {
+  color: palevioletred;
+}
+
+div.home_navigation > ul > li {
+  list-style: none;
+}

@@ -1,0 +1,51 @@
+.profile_button__container {
+  cursor: pointer;
+}
+
+.profile_button__container > div:first-child > button {
+  height: 40px;
+  width: 40px;
+  background-color: peachpuff;
+  border-radius: 100%;
+  border: 2px solid olive;
+  font-size: 14pt;
+  font-weight: 500;
+  color: rgb(100,100,100);
+  margin: 0px 1vw;
+  cursor: pointer;
+}
+
+.fa-caret-down {
+  color: olive;
+  cursor: pointer;
+}
+
+.fa-caret-up {
+  color: olive;
+  cursor: pointer;
+}
+
+.profile_button__dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+  height: auto;
+  border: 1px solid olive;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgba(255, 150, 25, 0.25);
+  transform: translate(-60%, 10%);
+}
+
+.profile_button__dropdown > div {
+  margin: 10px 10px;
+  width: 85%;
+  height: 100%;
+  font-family: Architects Daughter;
+  font-weight: 400;
+}
+
+.profile_button__dropdown > div:hover {
+  background-color: rgba(255, 150, 25, 0.25);
+}

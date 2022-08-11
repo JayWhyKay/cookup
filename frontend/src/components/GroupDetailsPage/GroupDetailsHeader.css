@@ -1,0 +1,154 @@
+.group-details-header-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(46, 62, 72, 0.12);
+  /* position: relative; */
+}
+
+.group-details-header-content {
+  width: 70%;
+  display: flex;
+  gap: 2rem;
+  /* position: relative; */
+}
+
+.group-details-header-content > img {
+  border-radius: 0.5rem;
+  width: 55%;
+  object-fit: cover;
+  max-height: 340px;
+}
+
+.group-header-info {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+
+.group-header-info > h1 {
+  color: rgb(33, 33, 33);
+  font-size: 2rem;
+  line-height: 38px;
+}
+
+.group-details-header-location-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.group-details-location-span {
+  color: rgb(33, 33, 33);
+  font-size: 14px;
+}
+
+.fa-people-group {
+  color: rgb(117, 117, 117);
+}
+
+.group-details-headers-members-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.group-details-members-span {
+  color: rgb(33, 33, 33);
+  font-size: 14px;
+}
+
+.group-details-headers-organizer-container {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.group-details-organizer-span {
+  color: rgb(33, 33, 33);
+  font-size: 14px;
+}
+
+.group-details-headers-organizer-container .fa-user {
+  color: rgb(117, 117, 117);
+  background: none;
+  font-size: 14px;
+  padding: 0;
+  margin-right: 0.25rem;
+}
+
+.group-edit-delete-menu-container .fa-ellipsis {
+  margin-bottom: 1rem;
+}
+
+.groups-delete-edit-menu {
+  position: absolute;
+  top: 0;
+  left: 100;
+  bottom: 0;
+  right: 0px;
+}
+
+.group-edit-delete-menu-container {
+  position: absolute;
+  top: 125px;
+  left: 90%;
+  bottom: 0;
+  right: 0px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-edit-delete-menu {
+  background-color: rgb(246, 247, 248);
+  border-radius: 0.5rem;
+  margin-right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  width: 125px;
+}
+
+.edit-group-link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+}
+
+.group-edit-delete-menu-container button {
+  background: none;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.create-event-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.create-event-container button {
+  outline: none;
+  background-color: rgb(246, 88, 88);
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 0.875rem;
+  line-height: 20px;
+  border: 1px solid rgb(246, 88, 88);
+  padding: 10px 20px;
+  cursor: pointer;
+}

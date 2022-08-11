@@ -1,0 +1,14 @@
+.login_button {
+  text-decoration: none;
+  font-size: 12pt;
+  letter-spacing: 0;
+  font-weight: 500;
+  color: rgb(100, 100, 100);
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.login_button:hover {
+  color: palevioletred
+}

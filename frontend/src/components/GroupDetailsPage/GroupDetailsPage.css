@@ -1,0 +1,23 @@
+.group-details-page__main-content-container {
+  padding: 48px 20px 48px 20px;
+  background-color: rgb(246, 247, 248);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group-details-page__main-content {
+  width: 70%;
+  display: flex;
+  gap: 6rem;
+}
+
+.about-and-upcoming-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-and-upcoming-container > h4 {
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+}
