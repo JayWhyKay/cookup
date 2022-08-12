@@ -38,6 +38,7 @@
 .event_details__body > div:first-child > img {
   width: 50%;
   min-width: 400px;
+  margin: 1vw;
   height: 250px;
   object-fit: cover;
   border-radius: 10px;
