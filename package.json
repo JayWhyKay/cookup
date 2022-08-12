@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AZensky/backend-project.git"
+    "url": "https://github.com/JayWhyKay/cookup.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AZensky/backend-project/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/AZensky/backend-project#readme",
+  "homepage": "",
   "dependencies": {
     "sequelize": "^6.21.2"
   }
