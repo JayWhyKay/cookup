@@ -31,75 +31,74 @@ function GroupDetailsHeader() {
 
   return (
     <>
-      <div className="group-details-header-container">
-        <div className="group-details-header-content">
+      <div className="group_details_header__container">
+        <div>
           <img
             src={
               groupDetails &&
               (groupDetails?.Images[0]?.url ||
                 "https://images.unsplash.com/photo-1586718520704-f7f9db04b8c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjN8fHdpbmUlMjBkaW5uZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=300&q=60")
             }
-            alt="Group Pic"
+            alt="Food Pic"
           />
-          <div className="group-header-info">
-            <h1>{groupDetails && groupDetails.name}</h1>
-            <div className="group-details-header-location-container">
-              <i className="fa-solid fa-lg fa-location-pin"></i>
-              <span className="group-details-location-span">
+          <div>
+            <h2>
+              {groupDetails && groupDetails.name}
+              {sessionUser &&
+                groupDetails &&
+                sessionUser.id === groupDetails.organizerId && (
+                  <div>
+                    <i
+                      className="fa-regular fa-pen-to-square fa-xl"
+                      onClick={() => setShowMenu(!showMenu)}
+                    ></i>
+                    {showMenu && (
+                      <div>
+                        <div
+                          onClick={() =>
+                            history.push(`/groups/edit/${groupId}`)
+                          }
+                        >
+                          Edit group
+                        </div>
+                        <div onClick={handleDelete}>Delete group</div>
+                      </div>
+                    )}
+                  </div>
+                )}
+            </h2>
+            <div className="group__location">
+              <i className="fa-solid fa-location-crosshairs"></i>{" "}
+              <span>
                 {groupDetails && groupDetails.city},{" "}
                 {groupDetails && groupDetails.state}
               </span>
             </div>
-            <div className="group-details-headers-members-container">
-              <i className="fa-solid fa-sm fa-people-group"></i>
-              <span className="group-details-members-span">
+            <div className="group__organizer">
+              <i className="fa-solid fa-lightbulb"></i>{" "}
+              <span>
+                Organized By {groupDetails && groupDetails.Organizer.firstName}{" "}
+                {groupDetails && groupDetails.Organizer.lastName}
+              </span>
+            </div>
+            <div className="group__total_members">
+              <i className="fa-solid fa-users"></i>{" "}
+              <span>
                 {groupDetails && groupDetails.numMembers}{" "}
                 {groupDetails && groupDetails.numMembers === 1
                   ? "member"
                   : "members"}
               </span>
             </div>
-            <div className="group-details-headers-organizer-container">
-              <i className="fa-solid fa-xl fa-user"></i>
-              <span className="group-details-organizer-span">
-                Organized By {groupDetails && groupDetails.Organizer.firstName}{" "}
-                {groupDetails && groupDetails.Organizer.lastName}
-              </span>
-            </div>
           </div>
         </div>
-
-        {/* Only display edit and delete event if they are organizer of the group */}
-        {sessionUser &&
-          groupDetails &&
-          sessionUser.id === groupDetails.organizerId && (
-            <div className="group-edit-delete-menu-container">
-              <i
-                className="fa-solid fa-ellipsis"
-                onClick={() => setShowMenu(!showMenu)}
-              ></i>
-              {showMenu && (
-                <div className="group-edit-delete-menu">
-                  <Link
-                    to={`/groups/edit/${groupId}`}
-                    className="edit-group-link"
-                  >
-                    Edit group
-                  </Link>
-                  <button onClick={handleDelete}>Delete group</button>
-                </div>
-              )}
-            </div>
-          )}
       </div>
-
-      {/* Only display create event if they are organizer of the group */}
       {sessionUser &&
         groupDetails &&
         sessionUser.id === groupDetails.organizerId && (
-          <div className="create-event-container">
+          <div className="create_event__button">
             <Link to={`/groups/${groupId}/create-event`}>
-              <button>Create an Event</button>
+              <button>Host an Event</button>
             </Link>
           </div>
         )}

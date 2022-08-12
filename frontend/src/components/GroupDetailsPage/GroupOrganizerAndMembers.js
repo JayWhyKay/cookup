@@ -7,19 +7,18 @@ function GroupOrganizerAndMembers({
   numMembers,
 }) {
   return (
-    <>
-      <div className="organizer-group-details">
-        <h4>Organizers</h4>
-        <i className="fa-solid fa-user"></i>
-        <span>
-          {organizerFirstName}, {organizerLastName}
-        </span>
+    <div className="organizer__container">
+      <h4>Organizer/Members</h4>
+      <div className="organizer__details">
+        <div>
+          <button>{organizerFirstName && organizerFirstName[0]}</button>
+          <span>
+            {organizerFirstName}, {organizerLastName}
+          </span>
+        </div>
+        <span>Members: {numMembers}</span>
       </div>
-
-      <div className="members-group-details">
-        <h4>Members: {numMembers}</h4>
-      </div>
-    </>
+    </div>
   );
 }
 

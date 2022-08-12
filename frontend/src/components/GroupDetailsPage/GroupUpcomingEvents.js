@@ -64,22 +64,24 @@ function GroupUpcomingEvents() {
   }
 
   return (
-    <div className="group-upcoming-event-container">
+    <div className="upcoming_event__container">
       {upcomingEvents.length > 0 &&
         upcomingEvents.map((event, idx) => (
           <Link
             key={event.id}
             to={`/events/${event.id}`}
-            className="group-upcoming-event-info-container"
+            className="upcoming_event__link"
           >
             <time>{timeStrings[idx]}</time>
+            {" "}
             <span>{event.name}</span>
-            <div className="group-upcoming-event-attendees-container">
+            <div>
               <i className="fa-solid fa-user-large"></i>
-              <p className="group-upcoming-event-num-attendees">
+              {' '}
+              <span>
                 {event.numAttending}{" "}
                 {event.numAttending === 1 ? "attendee" : "attendees"}{" "}
-              </p>
+              </span>
             </div>
           </Link>
         ))}

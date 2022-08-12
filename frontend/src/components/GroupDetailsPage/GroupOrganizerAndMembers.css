@@ -1,17 +1,29 @@
-.organizer-group-details > h4 {
-  font-size: 20px;
-  font-weight: 500;
+.organizer__details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
 }
 
-.organizer-group-details > .fa-user {
-  margin-right: 1rem;
+.organizer__container > h4 {
+  font-size: 14pt;
+  margin: 10px 0px;
+  font-weight: 600;
 }
 
-.organizer-group-details > span {
+.organizer__details > div > button {
+  height: 40px;
+  width: 40px;
+  background-color: peachpuff;
+  border-radius: 100%;
+  border: 2px solid olive;
+  font-size: 14pt;
   font-weight: 500;
+  color: rgb(100, 100, 100);
+  margin: 0px 1vw;
 }
 
-.members-group-details {
-  font-size: 20px;
-  font-weight: 500;
+.organizer__details > div > span {
+  font-size: 12pt;
 }

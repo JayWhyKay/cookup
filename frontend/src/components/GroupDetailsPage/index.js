@@ -21,33 +21,26 @@ function GroupDetailsPage() {
   }, [groupId]);
 
   return (
-    <>
+    <div className="group_detail__landing">
       <GroupDetailsHeader />
-      <div className="group-details-page__main-content-container">
-        <div className="group-details-page__main-content">
-          <div className="about-and-upcoming-container">
-            <div className="group-details__about-section">
-              <h4>What we're about</h4>
-              <p>{groupDetails && groupDetails.about}</p>
-            </div>
-            <h4>Upcoming Events</h4>
-            <GroupUpcomingEvents />
-          </div>
-
-          <div className="organizer-and-members-container">
-            <GroupOrganizerAndMembers
-              organizerFirstName={
-                groupDetails && groupDetails.Organizer.firstName
-              }
-              organizerLastName={
-                groupDetails && groupDetails.Organizer.lastName
-              }
-              numMembers={groupDetails && groupDetails.numMembers}
-            />
-          </div>
+      <div className="group_detail__body">
+        <div>
+          <GroupOrganizerAndMembers
+            organizerFirstName={
+              groupDetails && groupDetails.Organizer.firstName
+            }
+            organizerLastName={groupDetails && groupDetails.Organizer.lastName}
+            numMembers={groupDetails && groupDetails.numMembers}
+          />
+          <h4>About us:</h4>
+          <span>{groupDetails && groupDetails.about}</span>
+        </div>
+        <div>
+          <h4>Upcoming Events</h4>
+          <GroupUpcomingEvents />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

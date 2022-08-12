@@ -199,6 +199,9 @@
   border: 1px solid olive;
   background-color: rgba(200, 100, 100, 0.5);
   box-shadow: 1px 1px 1px 1px rgba(120, 120, 0, 0.25);
+  font-family: Architects Daughter;
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 .home_page_search__container > div:first-child > form > button:hover {
@@ -230,12 +233,15 @@
 
 .home_page_search__container > div:last-child > div > button{
   height: 30px;
-  width: 60px;
+  width: 80px;
   margin-bottom: 5px;
   border-radius: 15px;
   border: 1px solid olive;
   background-color: rgba(200, 100, 100, 0.5);
   box-shadow: 1px 1px 1px 1px rgba(120, 120, 0, 0.25);
+  font-family: Architects Daughter;
+  font-size: 14pt;
+  font-weight: 600;
 }
 
 .home_page_search__container > div:last-child > div > button:hover{

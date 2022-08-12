@@ -1,4 +1,33 @@
-.group-upcoming-event-container {
+.upcoming_event__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1vw;
+  width: 350px;
+}
+
+.upcoming_event__link {
+  text-decoration: none;
+  color: rgb(50,50,50);
+  padding: 1vw;
+}
+
+.upcoming_event__link:hover {
+  background-color: rgba(100,100,100,0.2);
+  color: palevioletred;
+  border-radius: 5px;
+}
+
+.upcoming_event__link > time {
+  font-weight: 600;
+}
+
+.upcoming_event__link > span {
+  color:purple
+}
+
+/* .group-upcoming-event-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -41,4 +70,4 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: rgb(117, 117, 117);
-}
+} */
