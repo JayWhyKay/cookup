@@ -54,7 +54,7 @@ function Footer() {
           ]}
         />
         <div>
-          <span>Technologies Used</span>
+          <span>Tech Used</span>
           <a href="https://reactjs.org/">
             <i class="devicon-react-original colored"></i>
             {` `}React
