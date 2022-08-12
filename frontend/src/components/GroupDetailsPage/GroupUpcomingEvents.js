@@ -72,12 +72,12 @@ function GroupUpcomingEvents() {
             to={`/events/${event.id}`}
             className="upcoming_event__link"
           >
-            <time>{timeStrings[idx]}</time>
-            {" "}
-            <span>{event.name}</span>
             <div>
-              <i className="fa-solid fa-user-large"></i>
-              {' '}
+              <time>{timeStrings[idx]}</time>
+              <span>{event.name}</span>
+            </div>
+            <div>
+              <i className="fa-solid fa-user-large"></i>{" "}
               <span>
                 {event.numAttending}{" "}
                 {event.numAttending === 1 ? "attendee" : "attendees"}{" "}
