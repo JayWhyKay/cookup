@@ -3,7 +3,6 @@ import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "../HomePageNavigation/ProfileButton";
 import LoginFormModal from "../LoginFormModal";
-import DemoLoginButton from "../HomePageNavigation/DemoLogin";
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
@@ -29,7 +28,6 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <DemoLoginButton />
         <LoginFormModal />
         <NavLink to="/signup" className="home_navigation__sign-up">
           Sign Up

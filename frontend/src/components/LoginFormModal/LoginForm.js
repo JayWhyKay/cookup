@@ -22,6 +22,13 @@ function LoginForm() {
     );
   };
 
+  function handleDemo() {
+    return dispatch(
+      sessionActions.login({ email: "demo@user.io", password: "password" })
+    );
+  }
+
+
   return (
     <form onSubmit={handleSubmit} className="login_form">
       <h1>CookUp</h1>
@@ -57,6 +64,9 @@ function LoginForm() {
       </label>
       <button type="submit">
         Log In
+      </button>
+      <button onClick={(e)=> handleDemo()}>
+        Demo User
       </button>
     </form>
   );
