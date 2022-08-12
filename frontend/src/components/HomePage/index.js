@@ -122,7 +122,7 @@ function HomePage() {
             <form onSubmit={handleSearch}>
               <input
                 type="text"
-                placeholder='Search for "Pop-up"'
+                placeholder='Search for "Pop-up" (case-sensitive)'
                 value={searchName}
                 onChange={(e) => setSearchName(e.target.value)}
               />
