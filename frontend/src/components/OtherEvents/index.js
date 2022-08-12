@@ -15,28 +15,30 @@ function OtherEvents() {
   const events = allEvents.slice(0, 3);
 
   return (
-    <div className="other-events-container">
-      <h2>Other Events</h2>
-      <div className="other-events__event-container">
-        {events.length > 0 &&
-          events.map((event) => (
-            <Link
-              to={`/events/${event.id}`}
-              className="other-event-link"
-              key={event.id}
-            >
-              <OtherEventCard
+    <div className="other_events__container">
+      <div>
+        <h2>Other Events</h2>
+        <div className="other_events__content">
+          {events.length > 0 &&
+            events.map((event) => (
+              <Link
+                to={`/events/${event.id}`}
+                className="other_event__link"
                 key={event.id}
-                id={event.id}
-                name={event.name}
-                city={event?.Venue?.city || "New York"}
-                state={event?.Venue?.state || "NY"}
-                group={event?.Group?.name}
-                attendees={event.numAttending}
-                startDate={event.startDate}
-              />
-            </Link>
-          ))}
+              >
+                <OtherEventCard
+                  key={event.id}
+                  id={event.id}
+                  name={event.name}
+                  city={event?.Venue?.city || "New York"}
+                  state={event?.Venue?.state || "NY"}
+                  group={event?.Group?.name}
+                  attendees={event.numAttending}
+                  startDate={event.startDate}
+                />
+              </Link>
+            ))}
+        </div>
       </div>
     </div>
   );

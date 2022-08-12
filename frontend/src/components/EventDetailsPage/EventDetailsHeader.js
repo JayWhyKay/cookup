@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteEvent } from "../../store/events";
 import "./EventDetailsHeader.css";
@@ -72,45 +72,45 @@ function EventDetailsHeader({ event }) {
     const newDate = new Date(event.startDate);
     const date = newDate.getUTCDate();
     let day = days[newDate.getDay()];
-    let hours = newDate.getHours();
     let month = monthNames[newDate.getMonth()];
-    const minutes = newDate.getMinutes();
     const year = newDate.getFullYear();
+    // const minutes = newDate.getMinutes();
+    // let hours = newDate.getHours();
 
     timeStr = `${day}, ${month} ${date}, ${year}`;
   }
 
   return (
-    <div className="event-details-header-container">
-      <div className="event-details-header-content">
+    <div className="event_header__container">
+      <div>
         <time>{timeStr}</time>
-        <h1>{event && event.name} </h1>
-        <div className="event-organizer-info">
-          <i className="fa-solid fa-user"></i>
-          <div className="hosted-label">
-            <p>Hosted By</p>
+        <h2>
+          {event && event.name}
+          {sessionUser && eventDetails && groupDetails && (
+            <div>
+              <i
+                className="fa-regular fa-pen-to-square fa-lg"
+                onClick={() => setShowMenu(!showMenu)}
+              ></i>
+              {showMenu && (
+                <div className="event_edit_dropdown">
+                  <div onClick={() => history.push(`/events/edit/${eventId}`)}>
+                    Edit event
+                  </div>
+                  <div onClick={handleDelete}>Delete event</div>
+                </div>
+              )}
+            </div>
+          )}
+        </h2>
+        <div className="event_organizer">
+          <i class="fa-solid fa-utensils"></i>
+          <div>
+            <span>Hosted By:</span>
             <span>{event && event.Group.name}</span>
           </div>
         </div>
       </div>
-
-      {/* Conditionally render these options if the current user is the organizer of the group that created the event */}
-      {sessionUser && eventDetails && groupDetails && (
-        <div className="event-edit-delete-menu-container">
-          <i
-            className="fa-solid fa-ellipsis"
-            onClick={() => setShowMenu(!showMenu)}
-          ></i>
-          {showMenu && (
-            <div className="event-edit-delete-menu">
-              <Link to={`/events/edit/${eventId}`} className="edit-event-link">
-                Edit event
-              </Link>
-              <button onClick={handleDelete}>Delete event</button>
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }

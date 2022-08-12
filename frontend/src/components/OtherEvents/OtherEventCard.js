@@ -43,25 +43,23 @@ function OtherEventCard({ id, name, city, state, group, attendees, startDate, })
   }`;
 
   return (
-    <div className="other-event-card-container">
-      <div className="other-event-card">
-        <div className="other-event-details">
-          <time>{timeStr}</time>
+      <div className="other_event__card">
+        <div>
+          <span>{timeStr}</span>
           <h4>{name}</h4>
-          <p>{group}</p>
-          <div className="other-events-location">
-            <i className="fa-solid fa-lg fa-location-pin"></i>
+          <span>{group}</span>
+          <div className="event__location">
+            <i class="fa-solid fa-location-crosshairs"></i>
             <span>
               {city}, {state}
             </span>
           </div>
         </div>
 
-        <div className="other-event-numAttendees">
+        <div className="event_num__attendees">
           {attendees} {attendees === 1 ? "attendee" : "attendees"}
         </div>
       </div>
-    </div>
   );
 }
 

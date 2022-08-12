@@ -389,7 +389,7 @@ router.get("/:eventId", async (req, res) => {
     include: [
       {
         model: Group,
-        attributes: ["id", "name", "private", "city", "state"],
+        attributes: ["id", "name", "private", "city", "state", "previewImage"],
       },
       {
         model: Venue,
@@ -586,11 +586,11 @@ router.get("/", validateEventsQuery, async (req, res) => {
     include: [
       {
         model: Group,
-        attributes: ["id", "name", "city", "state"],
+        attributes: ["id", "name", "city", "state", "previewImage"],
       },
       {
         model: Venue,
-        attributes: ["id", "city", "state"],
+        attributes: ["id", "city", "state", "lat", "lng"],
       },
     ],
     where,

@@ -49,7 +49,7 @@ function GroupDetailsHeader() {
                 sessionUser.id === groupDetails.organizerId && (
                   <div>
                     <i
-                      className="fa-regular fa-pen-to-square fa-xl"
+                      className="fa-regular fa-pen-to-square fa-lg"
                       onClick={() => setShowMenu(!showMenu)}
                     ></i>
                     {showMenu && (
