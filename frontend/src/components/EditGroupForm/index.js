@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { editGroup } from "../../store/groups";
+import './EditGroupForm.css'
 
 function EditGroupForm() {
   let { groupId } = useParams();
@@ -67,17 +68,15 @@ function EditGroupForm() {
   }
 
   return (
-    <div className="create-group-form-page-container">
-      <div className="create-group-form-container">
-        <form className="create-group-form" onSubmit={handleSubmit}>
+    <div className="edit_group_form__container">
+      <div>
+        <h1>Edit {group && group.name}</h1>
+        <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&
               validationErrors.length > 0 &&
               validationErrors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <h1 className="create-group-form__title">
-            Edit {group && group.name}
-          </h1>
           <label>
             Group Name
             <input
@@ -95,24 +94,6 @@ function EditGroupForm() {
               onChange={(e) => setAbout(e.target.value)}
               required
             />
-          </label>
-          <label className="create-group-form__email__label">
-            Type
-            <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="Online">Online</option>
-              <option value="In person">In Person</option>
-            </select>
-          </label>
-
-          <label
-            className="private-option"
-            onChange={(e) => setIsPrivate(e.target.value)}
-          >
-            Private?
-            <select value={isPrivate}>
-              <option value={false}>No</option>
-              <option value={true}>Yes</option>
-            </select>
           </label>
           <label>
             City
@@ -132,6 +113,25 @@ function EditGroupForm() {
               required
             />
           </label>
+          <div className="edit_group__selection">
+            <label>
+              Type
+              <select value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="Online">Online</option>
+                <option value="In person">In Person</option>
+              </select>
+            </label>
+
+            <label
+              onChange={(e) => setIsPrivate(e.target.value)}
+            >
+              Private?
+              <select value={isPrivate}>
+                <option value={false}>No</option>
+                <option value={true}>Yes</option>
+              </select>
+            </label>
+          </div>
           <button type="submit">Edit Group</button>
         </form>
       </div>

@@ -48,15 +48,15 @@ function CreateGroupForm() {
   }
 
   return (
-    <div className="create-group-form-page-container">
-      <div className="create-group-form-container">
-        <form onSubmit={handleSubmit} className="create-group-form">
+    <div className="create_group_form__container">
+      <div>
+        <h1>Create a Group</h1>
+        <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&
               validationErrors.length > 0 &&
               validationErrors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <h1 className="create-group-form__title">Create a Group</h1>
           <label>
             Group Name
             <input
@@ -74,27 +74,6 @@ function CreateGroupForm() {
               onChange={(e) => setAbout(e.target.value)}
               required
             />
-          </label>
-          <label className="create-group-form__email__label">
-            Type
-            <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="Online">Online</option>
-              <option value="In person">In Person</option>
-            </select>
-          </label>
-
-          <label
-            className="private-option"
-            onChange={(e) => setIsPrivate(e.target.value)}
-          >
-            Private?
-            <select
-              value={isPrivate}
-              onChange={(e) => setIsPrivate(e.target.value)}
-            >
-              <option value={false}>No</option>
-              <option value={true}>Yes</option>
-            </select>
           </label>
           <label>
             City
@@ -114,6 +93,25 @@ function CreateGroupForm() {
               required
             />
           </label>
+          <div className="create_group__selection">
+            <label>
+              Type
+              <select value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="Online">Online</option>
+                <option value="In person">In Person</option>
+              </select>
+            </label>
+            <label onChange={(e) => setIsPrivate(e.target.value)}>
+              Private?
+              <select
+                value={isPrivate}
+                onChange={(e) => setIsPrivate(e.target.value)}
+              >
+                <option value={false}>No</option>
+                <option value={true}>Yes</option>
+              </select>
+            </label>
+          </div>
           <button type="submit">Create Group</button>
         </form>
       </div>
