@@ -33,7 +33,23 @@ const demoVenues = [
     city: "San Francisco",
     state: "CA",
     lat: 37.761464077212906,
-    lng: -122.42363754538711
+    lng: -122.42363754538711,
+  },
+  {
+    groupId: 2,
+    address: "2 Harrison St",
+    city: "New York",
+    state: "NY",
+    lat: 40.71881258019233,
+    lng: -74.00907541681045,
+  },
+  {
+    groupId: 2,
+    address: "47 E Houston St",
+    city: "New York",
+    state: "NY",
+    lat: 40.72468877453926,
+    lng: -73.99472809101349,
   },
   {
     groupId: 1,
