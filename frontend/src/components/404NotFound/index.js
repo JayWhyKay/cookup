@@ -3,10 +3,10 @@ import "./NotFoundPage.css";
 
 function NotFoundPage() {
   return (
-    <div className="not-found-container">
+    <div className="error_container">
       <h1>404</h1>
       <h3>Not Found</h3>
-      <h4>The requested resource could not be found</h4>
+      <h4>Resource could not be found. Please check url.</h4>
     </div>
   );
 }

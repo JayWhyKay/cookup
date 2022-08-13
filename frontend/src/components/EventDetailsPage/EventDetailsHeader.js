@@ -104,7 +104,7 @@ function EventDetailsHeader({ event }) {
           )}
         </h2>
         <div className="event_organizer">
-          <i class="fa-solid fa-utensils"></i>
+          <i className="fa-solid fa-utensils"></i>
           <div>
             <span>Hosted By:</span>
             <span>{event && event.Group.name}</span>

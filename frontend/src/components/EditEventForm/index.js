@@ -92,17 +92,22 @@ function EditEventForm() {
   }
 
   return (
-    <div className="create-group-form-page-container">
-      <div className="create-group-form-container">
-        <form className="create-group-form" onSubmit={handleSubmit}>
+    <div className="edit_event_form__container">
+      <div>
+        <h1>
+          Edit
+          <i
+            className="fa-solid fa-xmark fa-lg"
+            onClick={() => history.push(`/events/${eventId}`)}
+          ></i>
+        </h1>
+        <span>{event && event.name}</span>
+        <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&
               validationErrors.length > 0 &&
               validationErrors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <h1 className="create-group-form__title">
-            Edit {event && event.name}
-          </h1>
           <label>
             Event Name
             <input
@@ -112,33 +117,35 @@ function EditEventForm() {
               required
             />
           </label>
-
-          <label className="create-group-form__email__label">
-            Type
-            <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="Online">Online</option>
-              <option value="In person">In Person</option>
-            </select>
-          </label>
-
-          {venues.length > 0 && (
-            <label className="create-group-form__email__label">
-              Venue
-              <select value={venue} onChange={(e) => setVenue(e.target.value)}>
-                {venues.length > 0 &&
-                  venues.map((venue) => (
-                    <option value={venue.id} key={venue.id}>
-                      {venue.address}
-                      {venue.address !== "No Venue" && ", "}
-                      {venue.city}
-                      {venue.address !== "No Venue" && ", "}
-                      {venue.state}
-                    </option>
-                  ))}
+          <div className="edit_event__selection">
+            <label>
+              Type
+              <select value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="Online">Online</option>
+                <option value="In person">In Person</option>
               </select>
             </label>
-          )}
-
+            {venues.length > 0 && (
+              <label>
+                Venue
+                <select
+                  value={venue}
+                  onChange={(e) => setVenue(e.target.value)}
+                >
+                  {venues.length > 0 &&
+                    venues.map((venue) => (
+                      <option value={venue.id} key={venue.id}>
+                        {venue.address}
+                        {venue.address !== "No Venue" && ", "}
+                        {venue.city}
+                        {venue.address !== "No Venue" && ", "}
+                        {venue.state}
+                      </option>
+                    ))}
+                </select>
+              </label>
+            )}
+          </div>
           <label>
             Capacity
             <input
@@ -188,7 +195,7 @@ function EditEventForm() {
               required
             />
           </label>
-          <button type="submit">Edit Group</button>
+          <button type="submit">Edit Event</button>
         </form>
       </div>
     </div>

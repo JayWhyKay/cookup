@@ -27,14 +27,7 @@ function App() {
 
   return (
     <>
-      <div
-        className="application-main-content"
-        style={{
-          backgroundImage: "url(../public/image/background.jpg",
-          width: "100%",
-          height: "100%",
-        }}
-      >
+      <div>
         {isLoaded && (
           <Switch>
             <Route exact path="/">

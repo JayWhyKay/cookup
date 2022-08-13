@@ -50,7 +50,13 @@ function CreateGroupForm() {
   return (
     <div className="create_group_form__container">
       <div>
-        <h1>Create a Group</h1>
+        <h1>
+          Create a Group
+          <i
+            className="fa-solid fa-xmark fa-lg"
+            onClick={() => history.push("/groups")}
+          ></i>
+        </h1>
         <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&

@@ -70,7 +70,11 @@ function EditGroupForm() {
   return (
     <div className="edit_group_form__container">
       <div>
-        <h1>Edit {group && group.name}</h1>
+        <h1>
+          Edit
+          <i className="fa-solid fa-xmark fa-lg" onClick={()=>history.push(`/groups/${groupId}`)}></i>
+        </h1>
+        <span>{group && group.name}</span>
         <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&
@@ -121,7 +125,6 @@ function EditGroupForm() {
                 <option value="In person">In Person</option>
               </select>
             </label>
-
             <label
               onChange={(e) => setIsPrivate(e.target.value)}
             >

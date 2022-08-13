@@ -49,7 +49,7 @@ function OtherEventCard({ id, name, city, state, group, attendees, startDate, })
           <h4>{name}</h4>
           <span>{group}</span>
           <div className="event__location">
-            <i class="fa-solid fa-location-crosshairs"></i>
+            <i className="fa-solid fa-location-crosshairs"></i>
             <span>
               {city}, {state}
             </span>

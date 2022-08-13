@@ -27,6 +27,7 @@
   font-size: 14pt;
   color: red;
   font-family: Caveat;
+  cursor: pointer;
 }
 
 .footer__container > div:first-child > div {

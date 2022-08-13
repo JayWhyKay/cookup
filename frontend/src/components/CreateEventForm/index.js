@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createEvent } from "../../store/events";
+import "./CreateEventForm.css";
+
 function CreateEventForm() {
   let { groupId } = useParams();
   const dispatch = useDispatch();
@@ -71,15 +73,21 @@ function CreateEventForm() {
   }
 
   return (
-    <div className="create-group-form-page-container">
-      <div className="create-group-form-container">
-        <form className="create-group-form" onSubmit={handleSubmit}>
+    <div className="create_event_form__container">
+      <div>
+        <h1>
+          Create an Event
+          <i
+            className="fa-solid fa-xmark fa-lg"
+            onClick={() => history.push(`/groups/${groupId}`)}
+          ></i>
+        </h1>
+        <form onSubmit={handleSubmit}>
           <ul>
             {hasSubmitted &&
               validationErrors.length > 0 &&
               validationErrors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>
-          <h1 className="create-group-form__title">Create an Event</h1>
           <label>
             Event Name
             <input
@@ -89,32 +97,44 @@ function CreateEventForm() {
               required
             />
           </label>
-
-          <label className="create-group-form__email__label">
-            Type
-            <select value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="Online">Online</option>
-              <option value="In person">In Person</option>
-            </select>
+          <label>
+            Description
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
           </label>
-
-          {venues.length > 0 && (
-            <label className="create-group-form__email__label">
-              Venue
-              <select value={venue} onChange={(e) => setVenue(e.target.value)}>
-                {venues.length > 0 &&
-                  venues.map((venue) => (
-                    <option value={venue.id} key={venue.id}>
-                      {venue.address}
-                      {venue.address !== "No Venue" && ", "}
-                      {venue.city}
-                      {venue.address !== "No Venue" && ", "}
-                      {venue.state}
-                    </option>
-                  ))}
+          <div className="create_event__selection">
+            <label>
+              Type
+              <select value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="Online">Online</option>
+                <option value="In person">In Person</option>
               </select>
             </label>
-          )}
+            {venues.length > 0 && (
+              <label className="create-group-form__email__label">
+                Venue
+                <select
+                  value={venue}
+                  onChange={(e) => setVenue(e.target.value)}
+                >
+                  {venues.length > 0 &&
+                    venues.map((venue) => (
+                      <option value={venue.id} key={venue.id}>
+                        {venue.address}
+                        {venue.address !== "No Venue" && ", "}
+                        {venue.city}
+                        {venue.address !== "No Venue" && ", "}
+                        {venue.state}
+                      </option>
+                    ))}
+                </select>
+              </label>
+            )}
+          </div>
 
           <label>
             Capacity
@@ -138,15 +158,7 @@ function CreateEventForm() {
               required
             />
           </label>
-          <label>
-            Description
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-          </label>
+
           <label>
             Start Date
             <input

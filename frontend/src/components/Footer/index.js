@@ -19,7 +19,7 @@ function Footer() {
     <div className="footer__container">
       <div>
         <p>
-          Get started on <span>CookUp</span>.
+          Get started on <span onClick={()=> history.push('/')}>CookUp</span>.
         </p>
         {!sessionUser && (
           <div
@@ -56,7 +56,7 @@ function Footer() {
         <div>
           <span>Tech Used</span>
           <a href="https://reactjs.org/">
-            <i class="devicon-react-original colored"></i>
+            <i className="devicon-react-original colored"></i>
             {` `}React
           </a>
           <a href="https://redux.js.org/">
@@ -64,15 +64,15 @@ function Footer() {
             {` `}Redux
           </a>
           <a href="https://expressjs.com/">
-            <i class="devicon-express-original"></i>
+            <i className="devicon-express-original"></i>
             {` `}Express
           </a>
           <a href="https://sequelize.org/">
-            <i class="devicon-sequelize-plain colored"></i>
+            <i className="devicon-sequelize-plain colored"></i>
             {` `}Sequelize
           </a>
           <a href="https://www.javascript.com/">
-            <i class="devicon-javascript-plain colored"></i>
+            <i className="devicon-javascript-plain colored"></i>
             {` `}JavaScript
           </a>
         </div>

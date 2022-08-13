@@ -4,18 +4,37 @@
   align-items: center;
   justify-content: center;
   background: transparent;
+  padding: 2vw 0px;
+  background-color: rgba(255, 218, 185, 0.2);
 }
 
 .sign_up__container > div {
+  background-color: white;
   width: 60%;
   max-width: 400px;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   border: 1px solid rgba(100, 100, 100, 0.6);
   box-shadow: 1px 1px 1px 1px rgba(128, 128, 32, 0.4);
   margin-bottom: 1vw;
   border-radius: 5px;
+}
+
+.sign_up__container > div > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin-top: 30px;
+  font-size: 16pt;
+  font-weight: 600;
+}
+
+.fa-solid.fa-xmark:hover {
+  cursor: pointer;
+  color:palevioletred
 }
 
 .sign_up__container > div > form {
@@ -24,16 +43,10 @@
   align-items: center;
   justify-content: center;
   width: 70%;
-  height: 500px;
+  height: 100%;
   max-width: 400px;
 }
 
-.sign_up__container > div > form > h2 {
-  font-size: 16pt;
-  font-weight: 600;
-  margin-top: 15px;
-  padding: 0px;
-}
 
 .sign_up__container > div > form > ul {
   display: flex;
