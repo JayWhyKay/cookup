@@ -43,7 +43,7 @@ function Navigation({ isLoaded }) {
         <input
           className="nav_search__input"
           type="text"
-          placeholder="Search for events"
+          placeholder="Search for events (case-sensitive)"
           value={searchName}
           onChange={(e) => setSearchName(e.target.value)}
         />
