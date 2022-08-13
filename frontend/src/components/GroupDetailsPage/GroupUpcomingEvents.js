@@ -14,7 +14,7 @@ function GroupUpcomingEvents() {
     };
 
     getGroupEvents().catch(console.error);
-  }, []);
+  }, [groupId]);
 
   let days = {
     0: "Sunday",

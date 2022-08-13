@@ -46,7 +46,7 @@ function HomePage() {
           </div>
           <img
             src="https://secure.meetupstatic.com/next/images/shared/online_events.svg?w=640"
-            alt="Cook-up Image"
+            alt="Cook-up"
           />
         </div>
 
@@ -54,7 +54,7 @@ function HomePage() {
           <div onClick={() => history.push("/groups")}>
             <img
               src="https://v.fastcdn.co/u/f91f856b/56342857-0-Hola.png"
-              alt="Dialog image"
+              alt="Dialog"
             />
             <h3>Find a Group</h3>
             <p>Do what you love, share what you know, find your community.</p>
@@ -62,7 +62,7 @@ function HomePage() {
           <div onClick={() => history.push("/events")}>
             <img
               src="https://v.fastcdn.co/u/f91f856b/56343282-0-Tickets.png"
-              alt="Tickets image"
+              alt="Tickets"
             />
             <h3>Attend a CookUp</h3>
             <p>Something amazing is being cooked up near you everyday!</p>
@@ -109,7 +109,7 @@ function HomePage() {
           <div onClick={() => history.push("/groups")}>
             <img
               src="https://images.unsplash.com/photo-1533143708019-ea5cfa80213e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZmluZSUyMGRpbmluZ3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
-              alt="Food image"
+              alt="Food"
             />
             <span>
               Get inspired <i className="fa-solid fa-arrow-right fa-xl"></i>

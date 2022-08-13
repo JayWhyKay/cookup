@@ -32,7 +32,7 @@ function CreateEventForm() {
     };
 
     getVenues().catch(console.error);
-  }, []);
+  }, [groupId]);
 
   useEffect(() => {
     const errors = [];
