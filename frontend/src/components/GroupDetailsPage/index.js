@@ -11,6 +11,10 @@ function GroupDetailsPage() {
   const [groupDetails, setGroupDetails] = useState();
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getGroupDetails = async () => {
       let response = await fetch(`/api/groups/${groupId}`);
       let data = await response.json();

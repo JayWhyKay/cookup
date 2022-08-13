@@ -8,6 +8,8 @@ import OtherEventCard from "./OtherEventCard";
 function OtherEvents() {
   const dispatch = useDispatch();
   const allEvents = Object.values(useSelector((state) => state.events));
+
+
   useEffect(() => {
     dispatch(getAllEvents());
   }, [dispatch]);
@@ -25,6 +27,7 @@ function OtherEvents() {
                 to={`/events/${event.id}`}
                 className="other_event__link"
                 key={event.id}
+                onClick={()=>window.scroll(0,0)}
               >
                 <OtherEventCard
                   key={event.id}

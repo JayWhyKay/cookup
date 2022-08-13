@@ -22,6 +22,10 @@ function CreateEventForm() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getVenues = async () => {
       let response = await fetch("/api/venues");
       let data = await response.json();

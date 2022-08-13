@@ -17,6 +17,10 @@ function EventsPage() {
   let searchWord = query.get("name") ? query.get("name") : undefined;
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     dispatch(getAllEvents(searchWord));
   }, [dispatch, searchWord]);
 

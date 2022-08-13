@@ -21,6 +21,10 @@ function EditGroupForm() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getGroup = async () => {
       let response = await fetch(`/api/groups/${groupId}`);
       let data = await response.json();

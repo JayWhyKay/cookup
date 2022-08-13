@@ -8,26 +8,31 @@ import "./GroupsPage.css";
 function GroupsPage() {
   const dispatch = useDispatch();
   const groups = Object.values(useSelector((state) => state.groups));
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   useEffect(() => {
     dispatch(getAllGroups());
   }, [dispatch]);
 
   return (
-      <div className="groups__container">
-        <NavChoice displaySort={false} isEvent={false} />
-        {groups.map((group) => (
-          <GroupDetails
-            key={group.id}
-            name={group.name}
-            city={group.city}
-            state={group.state}
-            about={group.about}
-            members={group.numMembers}
-            preview={group.previewImage}
-            id={group.id}
-          />
-        ))}
-      </div>
+    <div className="groups__container">
+      <NavChoice displaySort={false} isEvent={false} />
+      {groups.map((group) => (
+        <GroupDetails
+          key={group.id}
+          name={group.name}
+          city={group.city}
+          state={group.state}
+          about={group.about}
+          members={group.numMembers}
+          preview={group.previewImage}
+          id={group.id}
+        />
+      ))}
+    </div>
   );
 }
 

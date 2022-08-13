@@ -15,11 +15,17 @@ function Footer() {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
+  const handleClick = () => {
+    history.push("/");
+    window.scroll(0, 0);
+  };
+
   return (
     <div className="footer__container">
       <div>
         <p>
-          Get started on <span onClick={()=> history.push('/')}>CookUp</span>.
+          Get started on <span onClick={() => handleClick()}>CookUp</span>.
         </p>
         {!sessionUser && (
           <div

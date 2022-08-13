@@ -24,6 +24,10 @@ function EditEventForm() {
   const [groupId, setGroupId] = useState("");
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     const getEvent = async () => {
       let response = await fetch(`/api/events/${eventId}`);
       let data = await response.json();

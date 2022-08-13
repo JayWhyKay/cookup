@@ -18,6 +18,10 @@ function CreateGroupForm() {
   const [hasSubmitted, setHasSubmitted] = useState(false);
 
   useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useEffect(() => {
     const errors = [];
     if (name.length > 60) errors.push("Name must be 60 characters or less");
     if (about.length < 50) errors.push("About must be 50 characters or more");

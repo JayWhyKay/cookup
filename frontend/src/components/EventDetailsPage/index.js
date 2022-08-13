@@ -5,9 +5,14 @@ import EventDetailsHeader from "./EventDetailsHeader";
 import OtherEvents from "../OtherEvents";
 
 function EventDetailsPage() {
-  const history = useHistory()
+  const history = useHistory();
   const { eventId } = useParams();
   const [event, setEvent] = useState();
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   useEffect(() => {
     const setEventDetails = async () => {
       const response = await fetch(`/api/events/${eventId}`);
@@ -134,7 +139,10 @@ function EventDetailsPage() {
           </div>
           <div>
             <h2>Host</h2>
-            <div className="group__picture_card" onClick={() => history.push(`/groups/${event?.Group.id}`)}>
+            <div
+              className="group__picture_card"
+              onClick={() => history.push(`/groups/${event?.Group.id}`)}
+            >
               {event && event?.Group.previewImage ? (
                 <img src={event?.Group.previewImage} alt="Event Pic" />
               ) : (
