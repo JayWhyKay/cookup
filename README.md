@@ -5,11 +5,11 @@ CookUp is a mobile friendly clone of Meetup. CookUp is a website designed with f
 [Click here to view CookUp Live Site](https://cook-up-jk.herokuapp.com/)
 
 ## Please see below links to project Wiki:
-[Feature List](https://github.com/JayWhyKay/airbnbjyk/wiki/Feature-List) \
+[Feature List](https://github.com/JayWhyKay/cookup/wiki/Feature-List) \
 [Database Schema](https://github.com/JayWhyKay/airbnbjyk/wiki/Database-Schema) \
-[Frontend Routes](https://github.com/JayWhyKay/airbnbjyk/wiki/Frontend-Routes) \
-[API Routes](https://github.com/JayWhyKay/airbnbjyk/wiki/API-Routes) \
-[Redux Store StateShape](https://github.com/JayWhyKay/airbnbjyk/wiki/Mybnb-Redux-State)
+[Frontend Routes](https://github.com/JayWhyKay/cookup/wiki/Frontend-Routes) \
+[API Routes](https://github.com/JayWhyKay/cookup/wiki/API-Routes) \
+[Redux Store StateShape](https://github.com/JayWhyKay/cookup/wiki/CookUp-Redux-State)
 
 
 ## Technologies Used:
