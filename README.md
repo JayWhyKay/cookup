@@ -1,6 +1,6 @@
 # About CookUp
 
-CookUp is a clone of Meetup. CookUp is a website designed with foodies in mind. It provides an online community for chefs and food enthusiasts to arrange events.
+CookUp is a mobile friendly clone of Meetup. CookUp is a website designed with foodies in mind. It provides an online community for chefs and food enthusiasts to arrange events.
 
 [Click here to view CookUp Live Site](https://cook-up-jk.herokuapp.com/)
 
