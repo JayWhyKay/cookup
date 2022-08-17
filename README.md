@@ -1,4 +1,6 @@
-# `Cookup`
+# `CookUp`
+
+CookUp is a clone of Meetup. CookUp is a website that provides an online platform for chefs and food lovers to gather and arrange food events.
 
 ## Database Schema Design
 
