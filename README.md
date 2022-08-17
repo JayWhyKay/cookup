@@ -34,10 +34,9 @@ To access full functionality of the app please follow the instructions below to 
 
 You will be able to test the features without sign up by click on the "Demo User" button located in the Login modal. To bring up the Login modal click the login button located at the top right of the page.
 
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
-<img width="1681" alt="Screen Shot 2022-08-01" src="">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/demo-login.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/homepage.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/group-list.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/group-details.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/event-details.png">
+<img width="1681" alt="Screen Shot 2022-08-01" src="https://github.com/JayWhyKay/cookup/blob/main/mygroups.png">
